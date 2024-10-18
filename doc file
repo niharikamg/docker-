@@ -1,0 +1,16 @@
+# Use lightweight base image
+FROM python:3.9-slim
+
+# Set working directory
+WORKDIR /home/data
+
+# Copy your Python script and text files into the container
+COPY script.py .
+COPY IF.txt .
+COPY AlwaysRememberUsThisWay.txt .
+
+# Ensure there's a folder for output
+RUN mkdir /home/data/output
+
+# Run the script when the container starts
+CMD ["python", "./script.py"]
